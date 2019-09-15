@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 
 class Fighter:
     def __init__(self, url):
-        #initializes url
         self.url = url
 
     def searchWeb(self):
@@ -20,12 +19,11 @@ class Fighter:
         #finds index where fighter name is in URL
         self.truncatedTitle = self.url.split('/')[4]
 
-        #saves text in file with fighter name
+        #saves fighter 
         with open("FILEPATH{}.txt".format(self.truncatedTitle), "w") as f:
             for self.parsed in self.parsedText[1].text:
                 f.write(self.parsed)
 
-        #success statement
         return "It was a success!"
 
 def main():
